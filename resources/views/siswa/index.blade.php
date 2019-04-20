@@ -7,47 +7,62 @@
   		{{ session('sukses') }}
 	</div>
 	@endif
-	<div class="row">
-		<div class="col-6">
-			<h2>Data Siswa</h2>
-		</div>	
-		<div class="col-6">
-			<button type="button" class="btn btn-outline-primary float-right" data-toggle="modal" data-target="#datasiswa">
-			  Tambah
-			</button>
-		</div>
 	
-		<table class="table table-bordered table-hover">
-		  	<thead class="thead-light"> 
-		  	  	<tr>
-		  	  	  	<th scope="col">#</th>
-		  	  	  	<th scope="col">Nama Depan</th>
-		  	  	  	<th scope="col">Nama Belakang</th>
-		  	  	  	<th scope="col">Jenis Kelamin</th>
-		  	  	  	<th scope="col">Agama</th>
-		  	  	  	<th scope="col">Alamat</th>
-		  	  	  	<th scope="col">Action</th>
-		  	  	</tr>
-		  	</thead>
-		  	<tbody>
-		  		@foreach($data_siswa as $key => $siswa)
-		  	  	<tr>
-		  	  	  	<th scope="row">{{ $key+1 }}</th>
-		  	  	  	<td>{{ $siswa->nama_depan }}</td>
-					<td>{{ $siswa->nama_belakang }}</td>
-					<td>{{ $siswa->jenis_kelamin }}</td>
-					<td>{{ $siswa->agama }}</td>
-					<td>{{ $siswa->alamat }}</td>
-					<td>
-						<a href="/siswa/{{$siswa->id}}/edit" class="btn btn-warning btn-sm">Edit</a>
-						<a href="/siswa/{{$siswa->id}}/destroy" class="btn btn-danger btn-sm" 
-							onclick="return confirm('Yakin mau di hapus?');">Hapus</a>
-					</td>
-		  	  	</tr>
-		  	  	@endforeach
-		  	</tbody>
-		</table>
+	<div class="main">
+		<!-- MAIN CONTENT -->
+		<div class="main-content">
+			<div class="container-fluid">
+				<h3 class="page-title">Tables</h3>
+				<div class="row">
+					<div class="col-md-12">
+						<!-- BASIC TABLE -->
+						<div class="panel">
+							<div class="panel-heading">
+								<h3 class="panel-title">Data Siswa</h3>
+								<button type="button" class="btn btn-outline-primary pull-right" data-toggle="modal" data-target="#datasiswa"> Tambah </button>
+							</div>	
+
+							<div class="panel-body">
+								<table class="table table-bordered table-hover">
+									<thead class="bg-red">
+										<tr>
+		  	  	  							<th scope="col">#</th>
+		  	  	  							<th scope="col">Nama Depan</th>
+		  	  	  							<th scope="col">Nama Belakang</th>
+		  	  	  							<th scope="col">Jenis Kelamin</th>
+		  	  	  							<th scope="col">Agama</th>
+		  	  	  							<th scope="col">Alamat</th>
+		  	  	  							<th scope="col">Action</th>
+										</tr>
+									</thead>
+									<tbody>
+										@foreach($data_siswa as $key => $siswa)
+										<tr>
+											<th scope="row">{{ $key+1 }}</th>
+		  	  	  							<td>{{ $siswa->nama_depan }}</td>
+											<td>{{ $siswa->nama_belakang }}</td>
+											<td>{{ $siswa->jenis_kelamin }}</td>
+											<td>{{ $siswa->agama }}</td>
+											<td>{{ $siswa->alamat }}</td>
+											<td>
+												<a href="/siswa/{{$siswa->id}}/edit" class="btn btn-warning btn-sm">Edit</a>
+												<a href="/siswa/{{$siswa->id}}/destroy" class="btn btn-danger btn-sm" 
+													onclick="return confirm('Yakin mau di hapus?');">Hapus</a>
+											</td>
+										</tr>
+										@endforeach
+									</tbody>
+								</table>
+							</div>
+						</div>
+						<!-- END BASIC TABLE -->
+					</div>
+				</div>
+			</div>
+		</div>
 	</div>
+	<!-- END MAIN CONTENT -->
+
 
 	<!-- Modal Tambah -->
 	<div class="modal fade" id="datasiswa" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
