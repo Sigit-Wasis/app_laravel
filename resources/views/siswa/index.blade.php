@@ -2,26 +2,30 @@
 
 @section('content')
 
-	@if(session('sukses'))
-	<div class="alert alert-success" role="alert">
-  		{{ session('sukses') }}
-	</div>
-	@endif
-	
 	<div class="main">
 		<!-- MAIN CONTENT -->
 		<div class="main-content">
 			<div class="container-fluid">
-				<h3 class="page-title">Tables</h3>
+				<h3 class="page-title">Data Siswa</h3>
+
+				@if(session('sukses'))
+				<div class="alert alert-success" role="alert">
+  					{{ session('sukses') }}
+				</div>
+				@endif
+				
 				<div class="row">
 					<div class="col-md-12">
+
 						<!-- BASIC TABLE -->
 						<div class="panel">
-							<div class="panel-heading">
-								<h3 class="panel-title">Data Siswa</h3>
-								<button type="button" class="btn btn-outline-primary pull-right" data-toggle="modal" data-target="#datasiswa"> Tambah </button>
-							</div>	
-
+							<div class="modal-add" style="margin-left: 25px; margin-top: 20px;">
+								<p class="demo-button">
+									<button type="button" class="btn btn-success" data-toggle="modal" data-target="#datasiswa">
+									<i class="fa fa-plus-square"></i></button>
+								</p>
+							</div>
+							
 							<div class="panel-body">
 								<table class="table table-bordered table-hover">
 									<thead class="bg-red">

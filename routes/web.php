@@ -15,8 +15,12 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+// Route for siswa
 Route::get('/siswa', 'SiswaController@index');
 Route::post('/siswa/create', 'SiswaController@create');
 Route::get('/siswa/{id}/edit', 'SiswaController@edit');
 Route::post('/siswa/{id}/update', 'SiswaController@update');
 Route::get('/siswa/{id}/destroy', 'SiswaController@destroy');
+
+// Route for Dashboard
+Route::get('/dashboard', 'DashboardController@index');
