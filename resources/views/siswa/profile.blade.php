@@ -91,9 +91,9 @@
 	</div>
 </div>
 
-				</div>
-			</div>
-			<!-- END MAIN CONTENT -->
-		</div>
+</div>
+</div>
+<!-- END MAIN CONTENT -->
+</div>
 
 @stop
