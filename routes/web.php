@@ -12,15 +12,26 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('home');
 });
 
-// Route for siswa
-Route::get('/siswa', 'SiswaController@index');
-Route::post('/siswa/create', 'SiswaController@create');
-Route::get('/siswa/{id}/edit', 'SiswaController@edit');
-Route::post('/siswa/{id}/update', 'SiswaController@update');
-Route::get('/siswa/{id}/destroy', 'SiswaController@destroy');
+// Route for login
+Route::get('/login', 'AuthController@login')->name('login');
+Route::post('/postlogin', 'AuthController@postlogin');
+Route::get('/logout', 'AuthController@logout');
 
-// Route for Dashboard
-Route::get('/dashboard', 'DashboardController@index');
+// Route for siswa
+// Yang hanya bisa mengatur pada route dibawah ini hanya admin
+Route::group(['middleware' => ['auth', 'checkRole:admin']],function() {
+	Route::get('/siswa', 'SiswaController@index');
+	Route::post('/siswa/create', 'SiswaController@create');
+	Route::get('/siswa/{id}/edit', 'SiswaController@edit');
+	Route::post('/siswa/{id}/update', 'SiswaController@update');
+	Route::get('/siswa/{id}/destroy', 'SiswaController@destroy');	
+	Route::get('/siswa/{id}/profile', 'SiswaController@profile');
+});
+
+// Route ini untuk dashboard dapat di akses oleh admin dan siswa
+Route::group(['middleware' => ['auth', 'checkRole:admin,siswa']],function() {
+	Route::get('/dashboard', 'DashboardController@index');
+});

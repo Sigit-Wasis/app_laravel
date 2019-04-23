@@ -17,7 +17,7 @@
             <div class="row">
                 <div class="col-lg-12">
 
-                <form action="/siswa/{{$siswa->id}}/update" method="post">
+                <form action="/siswa/{{$siswa->id}}/update" method="post" enctype="multipart/form-data">
                 {{csrf_field()}}
                 
                 <div class="form-group">
@@ -43,6 +43,11 @@
                     <label for="alamat">Alamat</label>
                     <input type="text" value="{{ $siswa->alamat }}" name="alamat" class="form-control" placeholder="Alamat">
                 </div>
+
+                <div class="form-group">
+                    <label for="alamat">Avatar</label>
+                    <input type="file" name="avatar" class="form-control">
+                </div>                
             
                 <a href="/siswa" class="btn btn-danger float-left">Close</a>
                 <button type="submit" class="btn btn-warning float-right">Update</button>

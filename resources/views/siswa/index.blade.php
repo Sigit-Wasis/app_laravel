@@ -43,8 +43,8 @@
 										@foreach($data_siswa as $key => $siswa)
 										<tr>
 											<th scope="row">{{ $key+1 }}</th>
-		  	  	  							<td>{{ $siswa->nama_depan }}</td>
-											<td>{{ $siswa->nama_belakang }}</td>
+		  	  	  							<td><a href="/siswa/{{$siswa->id}}/profile">{{ $siswa->nama_depan }}</a></td>
+											<td><a href="/siswa/{{$siswa->id}}/profile">{{ $siswa->nama_belakang}}</a></td>
 											<td>{{ $siswa->jenis_kelamin }}</td>
 											<td>{{ $siswa->agama }}</td>
 											<td>{{ $siswa->alamat }}</td>
@@ -88,6 +88,10 @@
 						<div class="form-group">
 						    <label for="nama_belakang">Nama Belakang</label>
 						    <input type="text" name="nama_belakang" class="form-control" placeholder="Nama Belakang">
+						</div>
+						<div class="form-group">
+						    <label for="email">Email</label>
+						    <input type="email" name="email" class="form-control" placeholder="Email">
 						</div>
 						<div class="form-group">
     						<label for="jenis_kelamin">Jenis Kelamin</label>
