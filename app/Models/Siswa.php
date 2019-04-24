@@ -19,4 +19,11 @@ class Siswa extends Model
     	
     	return asset('images/'.$this->avatar);
     }
+
+    public function mapel()
+    {
+        // untuk merelasikan antara siswa dengan mapel
+        // dan fungsi withPivot ini untuk mengambil nilai pada table mapel_siswa
+        return $this->belongsToMany(Mapel::class)->withPivot(['nilai']);
+    }
 }
