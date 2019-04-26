@@ -81,32 +81,56 @@
   		    	<div class="modal-body">
   		    		<form action="/siswa/create" method="post">
   		    			{{csrf_field()}}
-						<div class="form-group">
+						<div class="form-group {{ $errors->has('nama_depan') ? ' has-error' : ''}}">
 						  	<label for="nama_depan">Nama Depan</label>
 						  	<input type="text" name="nama_depan" class="form-control" placeholder="Nama Depan">
+						  	@if($errors->has('nama_depan'))
+						  		<span class="help-block">{{ $errors->first('nama_depan') }}</span>
+						  	@endif
 						</div>
-						<div class="form-group">
+
+						<div class="form-group {{ $errors->has('nama_belakang') ? ' has-error' : ''}}">
 						    <label for="nama_belakang">Nama Belakang</label>
 						    <input type="text" name="nama_belakang" class="form-control" placeholder="Nama Belakang">
+						    @if($errors->has('nama_belakang'))
+						  		<span class="help-block">{{ $errors->first('nama_belakang') }}</span>
+						  	@endif
 						</div>
-						<div class="form-group">
+
+						<div class="form-group {{ $errors->has('email') ? ' has-error' : ''}}">
 						    <label for="email">Email</label>
 						    <input type="email" name="email" class="form-control" placeholder="Email">
+						    @if($errors->has('email'))
+						  		<span class="help-block">{{ $errors->first('email') }}</span>
+						  	@endif
 						</div>
-						<div class="form-group">
+
+						<div class="form-group {{ $errors->has('jenis_kelamin') ? ' has-error' : ''}}">
     						<label for="jenis_kelamin">Jenis Kelamin</label>
     						<select class="form-control" name="jenis_kelamin">
-    						  <option value="L">Laki-Laki</option>
-    						  <option value="P">Perempuan</option>
+    							<option value="">--Pilih Gender--</option>
+    						  	<option value="L">Laki-Laki</option>
+    						  	<option value="P">Perempuan</option>
     						</select>
+    						@if($errors->has('jenis_kelamin'))
+						  		<span class="help-block">{{ $errors->first('jenis_kelamin') }}</span>
+						  	@endif
   						</div>
-						<div class="form-group">
+
+						<div class="form-group {{ $errors->has('agama') ? ' has-error' : ''}}">
 						    <label for="agama">Agama</label>
 						    <input type="text" name="agama" class="form-control" placeholder="Agama">
+						    @if($errors->has('agama'))
+						  		<span class="help-block">{{ $errors->first('agama') }}</span>
+						  	@endif
 						</div>
-						<div class="form-group">
+
+						<div class="form-group {{ $errors->has('alamat') ? ' has-error' : ''}}">
 						    <label for="alamat">Alamat</label>
 						    <input type="text" name="alamat" class="form-control" placeholder="Alamat">
+						    @if($errors->has('alamat'))
+						  		<span class="help-block">{{ $errors->first('alamat') }}</span>
+						  	@endif
 						</div>
 						
 						<div class="modal-footer">
