@@ -45,7 +45,7 @@
                 </div>
 
                 <div class="form-group">
-                    <label for="alamat">Avatar</label>
+                    <label for="avatar">Avatar</label>
                     <input type="file" name="avatar" class="form-control">
                 </div>                
             

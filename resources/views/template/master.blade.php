@@ -49,5 +49,4 @@
 	<script src="{{ asset('admin/assets/scripts/klorofil-common.js') }}"></script>
 	
 </body>
-
 </html>

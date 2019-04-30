@@ -46,7 +46,10 @@
 					</ul>
 				</div>
 			
-				<div class="text-center"><a href="/siswa/{{$siswa->id}}/edit" class="btn btn-warning">Edit Profile</a></div>
+				<div class="text-center">
+					<a href="/siswa/{{$siswa->id}}/edit" class="btn btn-warning">Edit Profile</a>
+					<a href="/siswa" class="btn btn-primary">Back</a>
+				</div>
 			</div>
 			<!-- END PROFILE DETAIL -->
 		</div>
